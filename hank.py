@@ -9,13 +9,12 @@ def cli():
 
 
 @cli.command()
-@click.option('--string', default="World",help="This is what will get greeted")
+@click.option('--string', default = None ,help="This is what will get greeted")
 @click.option('--repeat', default=1, help="No. of times to be greeted default is 1")
-@click.option('--color', default=None, help="Color of the text")
 def greet(string, repeat, color):
     """This Command Greets you"""
     for x in range(repeat):
-        if string == "World":
+        if string == None:
             click.echo(message="Please specify the --string argument")
             #print("Please specify the --string argument")
         else:
@@ -67,3 +66,21 @@ def datetime():
     click.echo(dt)
     click.echo(timer)
 
+
+
+
+@cli.command()
+@click.option('--file', type=click.STRING, default=None)
+@click.option('--msg', type=click.STRING, default=None)
+def create(file, msg):
+    """Makes a files and writes stuff down in it"""
+    if file == None:
+        click.echo(message="Please enter the --file argument")
+    else:
+        f = None
+        if msg == None:
+            f = open(f'{file}', 'w')
+        else:
+            f = open(f'{file}', 'w+')
+            f.write(msg)
+        
