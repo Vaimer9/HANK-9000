@@ -70,17 +70,16 @@ def datetime():
 
 
 @cli.command()
-@click.option('--file', type=click.STRING, default=None)
+@click.argument('file', type=click.STRING, default=None)
 @click.option('--msg', type=click.STRING, default=None)
 def create(file, msg):
     """Makes a files and writes stuff down in it"""
-    if file == None:
-        click.echo(message="Please enter the --file argument")
+    f = None
+    if msg == None:
+        f = open(f'{file}', 'w')
+        f.close()
     else:
-        f = None
-        if msg == None:
-            f = open(f'{file}', 'w')
-        else:
-            f = open(f'{file}', 'w+')
-            f.write(msg)
+        f = open(f'{file}', 'w+')
+        f.write(msg)
+        f.close()
         
