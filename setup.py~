@@ -1,0 +1,14 @@
+from setuptools import setup 
+
+setup(
+    name="HANK",
+    version="1.0",
+    py_modules=['hank'],
+    install_requires=[
+        'Click'
+    ],
+    entry_points='''
+        [console_scripts]
+        hank=hank:cli
+    ''',
+)

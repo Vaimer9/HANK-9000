@@ -1,0 +1,46 @@
+import click
+
+@click.group()
+def cli():
+    pass
+
+
+@cli.command()
+@click.option('--string', default="World",help="This is what will get greeted")
+@click.option('--repeat', default=1, help="No. of times to be greeted default is 1")
+@click.option('--color', default=None, help="Color of the text")
+def greet(string, repeat, color):
+    """This Command Greets you"""
+    for x in range(repeat):
+        if string == "World":
+            click.echo(message="Please specify the --string argument")
+            #print("Please specify the --string argument")
+        else:
+            click.echo(message=f"Hello {string}")
+            #click.echo(message=f"Hello {string}")
+            #print(f'Hello {string}')
+
+
+@cli.command()
+@click.option('--first', type=click.INT, default=None, prompt="First Number" ,help="First Number")
+@click.option('--second',type=click.INT,default=None, prompt="Second Number" ,help="Second Number")
+@click.option("--op", default="None")
+def math(first, second, op):
+    """ This Command can do 2 number maths """
+    first = int(first)
+    result = None
+    second = int(second)
+    if first and second == None:
+        click.echo(message="Please enter at least two numbers")
+    else:
+        if op == "+":
+            result = first + second
+        elif op == "-":
+            result = first - second
+        elif op == "*":
+            result = first * second
+        elif op == "/":
+            result = first / second
+        elif op == "None":
+            click.echo(message="I am pretty sure this error will never be displayed :/")
+        click.echo(result)
