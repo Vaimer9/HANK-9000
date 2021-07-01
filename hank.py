@@ -2,16 +2,22 @@ import click
 import math
 from googlesearch import search
 from datetime import datetime as dater
+from tqdm import tqdm
+import progressbar
+import time
+import random
 
 @click.group()
 def cli():
     pass
 
+def rander():
+    return random.randint(0, 9)
 
 @cli.command()
 @click.option('--string', default = None ,help="This is what will get greeted")
 @click.option('--repeat', default=1, help="No. of times to be greeted default is 1")
-def greet(string, repeat, color):
+def greet(string, repeat):
     """This Command Greets you"""
     for x in range(repeat):
         if string == None:
@@ -30,6 +36,7 @@ def greet(string, repeat, color):
 def math(first, second, operation):
     """ This Command can do 2 number maths """
     first = int(first)
+    
     result = None
     second = int(second)
     if first and second == None:
@@ -48,6 +55,8 @@ def math(first, second, operation):
         else:
             click.echo(message="Please enter the correct type of data.")
         click.echo(result)
+
+
 
 @cli.command()
 @click.option('--query', type=click.STRING, default=None, prompt="What is your search query", help="The string to be searched")
@@ -78,8 +87,43 @@ def create(file, msg):
     if msg == None:
         f = open(f'{file}', 'w')
         f.close()
+        click.echo(f'{file} sucessfully created')
     else:
         f = open(f'{file}', 'w+')
         f.write(msg)
         f.close()
+        click.echo(f'{file} sucessfully created and content written')
+
+
+
+@cli.command()
+@click.argument('file', type=click.STRING, default=None)
+def content(file):
+    """Shows content of a file"""
+    x = open(f'{file}')
+    for line in x:
+        click.echo(line)
+
+@cli.command()
+@click.argument('name', type=click.STRING, default=None)
+def hack(name):
+    """Hacks a person"""
+    r = f'{rander()}{rander()}.{rander()}{rander()}{rander()}.{rander()}{rander()}{rander()}.{rander()}{rander()}'
+
+    if name == None:
+        click.echo("Nobody was hacked")
+    else:
         
+        print("Commencing hacking protocol")
+        time.sleep(1)
+        print("Obtaining IP Address")
+        for i in tqdm (range (101), desc="Getting IP Address", ascii=False, ncols=75):
+            time.sleep(0.01)
+        click.echo(f"Obtained IP Address: {r}\n")
+        time.sleep(1)
+        click.echo("Commencing DDOS attack")
+        time.sleep(1)
+        for i in tqdm (range (101), desc="Launching attack", ascii=False, ncols=75):
+            time.sleep(0.01)
+        click.echo(f"DDOS Attack on IP Address {r} was sucessful\n")
+        click.echo(f'{name} was hacked sucessfully')

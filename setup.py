@@ -8,7 +8,11 @@ setup(
         'Click',
         'math',
         'googlesearch',
-        'datetime'
+        'datetime',
+        'tqdm',
+        'progressbar',
+        'time',
+        'random'
     ],
     entry_points='''
         [console_scripts]
