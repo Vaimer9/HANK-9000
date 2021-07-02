@@ -1,3 +1,2 @@
-/.google-cookie
-/.hank.py.swp
-/__pycache/hank.cpython-39.pyc
+!hank.py
+!setup.py
