@@ -1,6 +1,6 @@
 # Ignore everything
 *
 
-
+!.gitignore
 !hank.py
 !setup.py
