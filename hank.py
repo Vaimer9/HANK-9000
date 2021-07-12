@@ -15,18 +15,12 @@ def rander():
     return random.randint(0, 9)
 
 @cli.command()
-@click.option('--string', default = None ,help="This is what will get greeted")
-@click.option('--repeat', default=1, help="No. of times to be greeted default is 1")
+@click.argument('string', default=None)
+@click.argument('repeat', default=1, required=False)
 def greet(string, repeat):
     """This Command Greets you"""
-    for x in range(repeat):
-        if string == None:
-            click.echo(message="Please specify the --string argument")
-            #print("Please specify the --string argument")
-        else:
-            click.echo(message=f"Hello {string}")
-            #click.echo(message=f"Hello {string}")
-            #print(f'Hello {string}')
+    for _ in range(repeat):
+        click.echo(message=f"Hello {string}")
 
 
 @cli.command()
