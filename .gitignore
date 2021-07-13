@@ -1,8 +1,1 @@
-# Ignore everything
-*
-
-!.gitignore
-!hank.py
-!setup.py
-
-!*/
+/.google-cookie

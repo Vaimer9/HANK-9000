@@ -1,8 +1,0 @@
-hank.py
-setup.py
-HANK.egg-info/PKG-INFO
-HANK.egg-info/SOURCES.txt
-HANK.egg-info/dependency_links.txt
-HANK.egg-info/entry_points.txt
-HANK.egg-info/requires.txt
-HANK.egg-info/top_level.txt
