@@ -1,7 +1,7 @@
 # HANK-9000
 This is a command line interface made in python using the click module
 My main motive was to improve my productivity inside the command prompt itself without the need of any emulators
-and thus Hank was born. It is named after the famouse HANK-9000 from 2001 a space odessey
+and thus Hank was born. It is named after the famous HANK-9000 from 2001 a space odessey
 
 # Installation
 Run the following command in the directory:
